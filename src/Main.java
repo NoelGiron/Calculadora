@@ -16,7 +16,7 @@ public class Main {
                 Aritmetica();
                 break;
             case 2:
-                //Trigonometria();
+                Trigonometria();
                 break;
             case 3:
                 //Estadistica();
@@ -41,6 +41,7 @@ public class Main {
                 b = entradaTeclado.nextInt();
                 res = a+b;
                 System.out.println(a + "+" + b + "=" + res);
+                Aritmetica();
                 break;
             case 2:
                 System.out.println("ingrese el primer numero");
@@ -73,6 +74,59 @@ public class Main {
                 Aritmetica();
         }
         
+    }
+    static void Trigonometria(){
+        System.out.println("Trigonometria");
+        int opcion = leerNumero("Seleccione una opcion \n 1)Seno \n 2)Coseno \n 3)Tangente \n 4)Regresar");
+        switch(opcion){
+            case 1:
+                Seno();
+                break;
+            case 2:
+                System.out.println("ingrese el primer numero");
+                a = entradaTeclado.nextInt();
+                System.out.println("ingrese el segundo numero");
+                b = entradaTeclado.nextInt();
+                res = a-b;
+                System.out.println(a + "-" + b + "=" + res);
+                break;
+            case 3:
+                System.out.println("ingrese el primer numero");
+                a = entradaTeclado.nextInt();
+                System.out.println("ingrese el segundo numero");
+                b = entradaTeclado.nextInt();
+                res = a*b;
+                System.out.println(a + "*" + b + "=" + res);
+                break;
+            case 4:
+                menuInicio();
+                break;
+            default:
+                Trigonometria();
+        }
+        
+    }
+    static void Seno(){
+        double seno, dividendo, divisor, signo;
+        int x = 45;
+        seno = 0;
+        for (int i = 0; i < 4; i++) {
+            dividendo = 1;
+            for (int j = 0; j < 2*i+1; j++) {
+                dividendo = dividendo * x;
+            }
+            divisor = 1;
+            for (int j = 0; j <= 2*i+1; j++) {
+                divisor = divisor * j;
+            }
+            if (i%2 == 0) {
+                signo = 1;
+            }else{
+                signo = -1;
+            }
+            seno = seno + (dividendo/divisor)*signo;
+        }
+        System.out.println(seno);
     }
     static int leerNumero(String mensaje){
         System.out.println(mensaje);
