@@ -4,7 +4,7 @@ public class Main {
     static Scanner entradaTeclado = new Scanner(System.in);
     static int a;
     static int b;
-    static float res;
+    static double res;
     public static void main(String[] args) {
         menuInicio();
     }
@@ -41,7 +41,6 @@ public class Main {
                 b = entradaTeclado.nextInt();
                 res = a+b;
                 System.out.println(a + "+" + b + "=" + res);
-                Aritmetica();
                 break;
             case 2:
                 System.out.println("ingrese el primer numero");
@@ -108,7 +107,7 @@ public class Main {
     }
     static void Seno(){
         double seno, dividendo, divisor, signo;
-        int x = 45;
+        double x = 3.1416;
         seno = 0;
         for (int i = 0; i < 4; i++) {
             dividendo = 1;
