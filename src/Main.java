@@ -63,7 +63,7 @@ public class Main {
                 a = entradaTeclado.nextInt();
                 System.out.println("ingrese el segundo numero");
                 b = entradaTeclado.nextInt();
-                res = a/b;
+                res = (double) a/b;
                 System.out.println(a+ "/" + b + "=" + res);
                 break;
             case 5:
