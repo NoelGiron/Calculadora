@@ -89,7 +89,12 @@ public class Main {
                 Trigonometria();
                 break;
             case 2:
-                
+                System.out.println("Ingrese el angulo");
+                x = entradaTeclado.nextDouble();
+                System.out.println("Ingrese el numero de iteraciones");
+                n = entradaTeclado.nextInt();
+                Coseno(x,n);
+                Trigonometria();
                 break;
             case 3:
                 
@@ -123,6 +128,28 @@ public class Main {
             seno = seno + (dividendo/divisor)*signo;
         }
         System.out.println("sen("+x+")"+"="+seno);
+    }
+    static void Coseno(double x, int n){
+        double coseno, dividendo, divisor, signo;
+        //double x = 20;
+        coseno = 0;
+        for (int i = 0; i <= n; i++) {
+            dividendo = 1;
+            for (int j = 0; j < 2*i; j++) {
+                dividendo = dividendo * x;
+            }
+            divisor = 1;
+            for (int j = 1; j <= 2*i; j++) {
+                divisor = divisor * j;
+            }
+            if (i%2 == 0) {
+                signo = 1;
+            }else{
+                signo = -1;
+            }
+            coseno = coseno + (dividendo/divisor)*signo;
+        }
+        System.out.println("Cos("+x+")"+"="+coseno);
     }
     static int leerNumero(String mensaje){
         System.out.println(mensaje);
