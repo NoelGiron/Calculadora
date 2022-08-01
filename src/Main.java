@@ -73,8 +73,7 @@ public class Main {
                 break;
             default:
                 Aritmetica();
-        }
-        
+        }    
     }
     static void Trigonometria(){
         System.out.println("Trigonometria");
@@ -85,7 +84,7 @@ public class Main {
                 x = entradaTeclado.nextDouble();
                 System.out.println("Ingrese el numero de iteraciones");
                 n = entradaTeclado.nextInt();
-                Seno(x,n);
+                System.out.println("Sen("+x+")= " + Seno(x,n));
                 Trigonometria();
                 break;
             case 2:
@@ -93,11 +92,16 @@ public class Main {
                 x = entradaTeclado.nextDouble();
                 System.out.println("Ingrese el numero de iteraciones");
                 n = entradaTeclado.nextInt();
-                Coseno(x,n);
+                System.out.println("Cos("+x+")= " + Coseno(x,n));
                 Trigonometria();
                 break;
             case 3:
-                
+                System.out.println("Ingrese el angulo");
+                x = entradaTeclado.nextDouble();
+                System.out.println("Ingrese el numero de iteraciones");
+                n = entradaTeclado.nextInt();
+                System.out.println("Tan("+x+")= " + Seno(x,n)/Coseno(x,n));
+                Trigonometria();
                 break;
             case 4:
                 menuInicio();
@@ -107,9 +111,8 @@ public class Main {
         }
         
     }
-    static void Seno(double x, int n){
+    static double Seno(double x, int n){
         double seno, dividendo, divisor, signo;
-        //double x = 20;
         seno = 0;
         for (int i = 0; i <= n; i++) {
             dividendo = 1;
@@ -127,11 +130,10 @@ public class Main {
             }
             seno = seno + (dividendo/divisor)*signo;
         }
-        System.out.println("sen("+x+")"+"="+seno);
+        return seno;
     }
-    static void Coseno(double x, int n){
+    static double Coseno(double x, int n){
         double coseno, dividendo, divisor, signo;
-        //double x = 20;
         coseno = 0;
         for (int i = 0; i <= n; i++) {
             dividendo = 1;
@@ -149,7 +151,7 @@ public class Main {
             }
             coseno = coseno + (dividendo/divisor)*signo;
         }
-        System.out.println("Cos("+x+")"+"="+coseno);
+        return coseno;
     }
     static int leerNumero(String mensaje){
         System.out.println(mensaje);
