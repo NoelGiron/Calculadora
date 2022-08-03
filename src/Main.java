@@ -8,6 +8,7 @@ public class Main {
     static int n;
     static double res;
     static int number;
+    static String cadena;
     public static void main(String[] args) {
         menuInicio();
     }
@@ -112,16 +113,11 @@ public class Main {
         }  
     }
     static void Estadistica(){
-        System.out.println("Trigonometria");
-        int opcion = leerNumero("Seleccione una opcion \n 1)Seno \n 2)Coseno \n 3)Tangente \n 4)Regresar");
+        System.out.println("Estadistica");
+        int opcion = leerNumero("Seleccione una opcion \n 1)Media \n 2)Varianza \n 3)Desviacion Estandar \n 4)Regresar");
         switch(opcion){
             case 1:
-                System.out.println("Ingrese el angulo");
-                x = entradaTeclado.nextDouble();
-                System.out.println("Ingrese el numero de iteraciones");
-                n = entradaTeclado.nextInt();
-                System.out.println("Sen("+x+")= " + Seno(x,n));
-                Trigonometria();
+                System.out.println(media(cadena));
                 break;
             case 2:
                 System.out.println("Ingrese el angulo");
@@ -188,14 +184,14 @@ public class Main {
         }
         return coseno;
     }
-    static int Spliter(String cadena){
+    static double media(String cadena){
         System.out.println("ingrese numeros separados por coma (,)");
         cadena = entradaTeclado.next();
         String[] cadenaNumero = cadena.split(","); 
         for (int i = 0; i < cadenaNumero.length; i++) {
-            number = Integer.parseInt(cadenaNumero[i]);
-        }
-        return number;
+            number += Integer.parseInt(cadenaNumero[i]);
+        }  
+        return number/cadenaNumero.length;
     }
     static int leerNumero(String mensaje){
         System.out.println(mensaje);
