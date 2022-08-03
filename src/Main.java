@@ -126,11 +126,7 @@ public class Main {
                 Estadistica();
                 break;
             case 3:
-                System.out.println("Ingrese el angulo");
-                x = entradaTeclado.nextDouble();
-                System.out.println("Ingrese el numero de iteraciones");
-                n = entradaTeclado.nextInt();
-                System.out.println("Tan("+x+")= " + Seno(x,n)/Coseno(x,n));
+                System.out.println(Math.pow(varianza(cadena), 0.5));  
                 Trigonometria();
                 break;
             case 4:
