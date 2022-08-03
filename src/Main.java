@@ -7,6 +7,7 @@ public class Main {
     static double x;
     static int n;
     static double res;
+    static int number;
     public static void main(String[] args) {
         menuInicio();
     }
@@ -21,7 +22,7 @@ public class Main {
                 Trigonometria();
                 break;
             case 3:
-                //Estadistica();
+                Estadistica();
                 break;
             case 4:
                 //Calculo();
@@ -108,8 +109,42 @@ public class Main {
                 break;
             default:
                 Trigonometria();
+        }  
+    }
+    static void Estadistica(){
+        System.out.println("Trigonometria");
+        int opcion = leerNumero("Seleccione una opcion \n 1)Seno \n 2)Coseno \n 3)Tangente \n 4)Regresar");
+        switch(opcion){
+            case 1:
+                System.out.println("Ingrese el angulo");
+                x = entradaTeclado.nextDouble();
+                System.out.println("Ingrese el numero de iteraciones");
+                n = entradaTeclado.nextInt();
+                System.out.println("Sen("+x+")= " + Seno(x,n));
+                Trigonometria();
+                break;
+            case 2:
+                System.out.println("Ingrese el angulo");
+                x = entradaTeclado.nextDouble();
+                System.out.println("Ingrese el numero de iteraciones");
+                n = entradaTeclado.nextInt();
+                System.out.println("Cos("+x+")= " + Coseno(x,n));
+                Trigonometria();
+                break;
+            case 3:
+                System.out.println("Ingrese el angulo");
+                x = entradaTeclado.nextDouble();
+                System.out.println("Ingrese el numero de iteraciones");
+                n = entradaTeclado.nextInt();
+                System.out.println("Tan("+x+")= " + Seno(x,n)/Coseno(x,n));
+                Trigonometria();
+                break;
+            case 4:
+                menuInicio();
+                break;
+            default:
+                Estadistica();
         }
-        
     }
     static double Seno(double x, int n){
         double seno, dividendo, divisor, signo;
@@ -152,6 +187,15 @@ public class Main {
             coseno = coseno + (dividendo/divisor)*signo;
         }
         return coseno;
+    }
+    static int Spliter(String cadena){
+        System.out.println("ingrese numeros separados por coma (,)");
+        cadena = entradaTeclado.next();
+        String[] cadenaNumero = cadena.split(","); 
+        for (int i = 0; i < cadenaNumero.length; i++) {
+            number = Integer.parseInt(cadenaNumero[i]);
+        }
+        return number;
     }
     static int leerNumero(String mensaje){
         System.out.println(mensaje);
