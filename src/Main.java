@@ -10,6 +10,7 @@ public class Main {
     static double res;
     static double number;
     static String cadena;
+    static double[][] Matriz;
     public static void main(String[] args) {
         menuInicio();
     }
@@ -27,7 +28,7 @@ public class Main {
                 Estadistica();
                 break;
             case 4:
-                //Calculo();
+                Calculo();
                 break;
             case 5:
                 break;
@@ -136,6 +137,26 @@ public class Main {
                 Estadistica();
         }
     }
+    static void Calculo(){
+        System.out.println("Calculo");
+        int opcion = leerNumero("Seleccione una opcion \n 1)Resolver un sistema de ecuaciones \n 2)Regresar");
+        switch(opcion){
+            case 1:
+                System.out.println("Ingrese el tamaño del sistema a resovler");
+                n = entradaTeclado.nextInt();
+                Matriz = new double[n][n+1];
+                
+//                System.out.println("ingrese una cadena de caracteres separados por una coma (,)");
+//                cadena = entradaTeclado.next();
+//                System.out.println(impresion(Spliter(cadena)));
+//                break;
+            case 4:
+                menuInicio();
+                break;
+            default:
+                Calculo();
+        }
+    }
     static double Seno(double x, int n){
         double seno, dividendo, divisor, signo;
         seno = 0;
@@ -203,6 +224,77 @@ public class Main {
         }
         double varianza = sumatoria/cadenaNumero.length;
         return varianza;
+    }
+    static double[][] Gauss(double[][] Matriz){
+        double[][] vMatriz = Matriz;
+        double vNumero;
+        for (int i = 0; i <=vMatriz.length-1 ; i++) {
+            vNumero = vMatriz[i][i];
+            for (int j = 0; j <= vMatriz[0].length-1; j++) {
+                vMatriz[i][j]= vMatriz[i][j]/vNumero;
+            }
+            if (i<=vMatriz.length-2) {
+                for (int j = i+1; j <= vMatriz.length-1; j++) {
+                    vNumero = vMatriz[j][i];
+                    for (int k = 0; k <= vMatriz.length-1; k++) {
+                        vMatriz[j][k] = (vMatriz[j][k]-(vNumero-vMatriz[j][k]));
+                    }
+                }
+            }
+        }
+        return vMatriz;
+    }
+    static double[] Spliter(String cadena){
+        double[] vector;
+        int elementos = 1;
+        int contador = 0;
+        String cadenaNumero = "";
+        //contador de elementos
+        for (int i = 0; i <= cadena.length()-1; i++) {
+            if (cadena.charAt(i) == ',') {
+                elementos++;
+            }
+        }
+        //dimensionar el vector
+        vector = new double[elementos];
+        //ingreso de numeros
+        for (int i = 0; i <= cadena.length()-1; i++) {
+            if (Character.isDigit(cadena.charAt(i))) {
+                cadenaNumero = cadenaNumero+cadena.charAt(i);
+            }
+            if (cadena.charAt(i) == '.') {
+                cadenaNumero = cadenaNumero+cadena.charAt(i);
+            }
+            if (cadena.charAt(i) == '-') {
+                cadenaNumero = cadenaNumero+cadena.charAt(i);
+            }
+            //ingreso de numeros
+            if (cadena.charAt(i) == ',' || i == cadena.length()-1) {
+                vector[contador] = Double.parseDouble(cadenaNumero);
+                if (cadena.charAt(i) == ',') {
+                    contador++;
+                }
+                cadenaNumero = "";
+            }
+        }
+        return vector;
+    }
+    static String impresion(double[] Vector){
+        //variables
+        String valor = "";
+        //recorrido del vector
+        for (int i = 0; i <= Vector.length-1; i++) {
+            valor = valor + String.valueOf(Vector[i] + " ");
+        }
+        return valor;
+    }
+    static double llenarMatriz(double[] Vector){
+        for (int i = 0; i < Vector.length; i++) {
+            for (int j = 0; j < Vector.length; j++) {
+                Matriz[i][j] = Vector[j];
+            }
+        }
+        return Matriz;
     }
     static int leerNumero(String mensaje){
         System.out.println(mensaje);
