@@ -145,11 +145,18 @@ public class Main {
                 System.out.println("Ingrese el tamaño del sistema a resovler");
                 n = entradaTeclado.nextInt();
                 Matriz = new double[n][n+1];
+                System.out.println("ingrese una cadena de caracteres separados por una coma (,)");
+                cadena = entradaTeclado.next();       
+                llenarMatriz(Spliter(cadena),n);
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j <= n; j++) {
+                        System.out.print(Matriz[i][j] + " ");
+                    }   
+                    System.out.println("");
+                }
+                impresionMatriz(Gauss(Matriz));
                 
-//                System.out.println("ingrese una cadena de caracteres separados por una coma (,)");
-//                cadena = entradaTeclado.next();
-//                System.out.println(impresion(Spliter(cadena)));
-//                break;
+                break;
             case 4:
                 menuInicio();
                 break;
@@ -288,13 +295,21 @@ public class Main {
         }
         return valor;
     }
-    static double llenarMatriz(double[] Vector){
-        for (int i = 0; i < Vector.length; i++) {
+    static double[][] llenarMatriz(double[] Vector, int n){
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < Vector.length; j++) {
                 Matriz[i][j] = Vector[j];
             }
         }
         return Matriz;
+    }
+    static void impresionMatriz(double[][] Matriz){
+        for (int i = 0; i < Matriz.length; i++) {
+            for (int j = 0; j <= Matriz.length; j++) {
+                System.out.print(Matriz[i][j] + " ");
+            }
+            System.out.println("");
+        }
     }
     static int leerNumero(String mensaje){
         System.out.println(mensaje);
