@@ -69,6 +69,10 @@ public class Main {
                 a = entradaTeclado.nextInt();
                 System.out.println("ingrese el segundo numero");
                 b = entradaTeclado.nextInt();
+                do {
+                    System.out.println("el segundo numero no puede ser 0 vuelva a ingresar");
+                    b = entradaTeclado.nextInt();
+                } while (b == 0);
                 res = (double) a/b;
                 System.out.println(a+ "/" + b + "=" + res);
                 break;
@@ -145,8 +149,10 @@ public class Main {
                 System.out.println("Ingrese el tamaño del sistema a resovler");
                 n = entradaTeclado.nextInt();
                 Matriz = new double[n][n+1];
-                System.out.println("ingrese una cadena de caracteres separados por una coma (,)");
-                cadena = entradaTeclado.next();       
+                for (int i = 0; i <= n; i++) {
+                    System.out.println("ingrese una cadena de caracteres separados por una coma (,)");
+                    cadena = entradaTeclado.next();    
+                }    
                 llenarMatriz(Spliter(cadena),n);
                 for (int i = 0; i < n; i++) {
                     for (int j = 0; j <= n; j++) {
@@ -155,9 +161,16 @@ public class Main {
                     System.out.println("");
                 }
                 impresionMatriz(Gauss(Matriz));
+//                System.out.println("ingrese la matriz");
+//                cadena = entradaTeclado.next();
+//                System.out.println(imprimirStringMatriz(StringMatriz(cadena)));
+//                System.out.println("----------------------");
+//                System.out.println(imprimirStringMatriz(Gauss(StringMatriz(cadena))));
                 
+//                double[][] A = {{4,5,6},{2,6,3},{6,4,2}};
+//                impresionMatriz(Gauss(A));
                 break;
-            case 4:
+            case 2:
                 menuInicio();
                 break;
             default:
@@ -235,16 +248,16 @@ public class Main {
     static double[][] Gauss(double[][] Matriz){
         double[][] vMatriz = Matriz;
         double vNumero;
-        for (int i = 0; i <=vMatriz.length-1 ; i++) {
+        for (int i = 0; i <= vMatriz.length-1; i++) {
             vNumero = vMatriz[i][i];
             for (int j = 0; j <= vMatriz[0].length-1; j++) {
-                vMatriz[i][j]= vMatriz[i][j]/vNumero;
-            }
-            if (i<=vMatriz.length-2) {
+                vMatriz[i][j]= vMatriz[i][j]/vNumero;       
+            }            
+            if (i <= vMatriz.length-2) {
                 for (int j = i+1; j <= vMatriz.length-1; j++) {
                     vNumero = vMatriz[j][i];
-                    for (int k = 0; k <= vMatriz.length-1; k++) {
-                        vMatriz[j][k] = (vMatriz[j][k]-(vNumero-vMatriz[j][k]));
+                    for (int k = 0; k <= vMatriz[0].length-1; k++) {
+                        vMatriz[j][k] = (vMatriz[j][k]-(vNumero*vMatriz[i][k]));
                     }
                 }
             }
@@ -296,9 +309,12 @@ public class Main {
         return valor;
     }
     static double[][] llenarMatriz(double[] Vector, int n){
+        int contador = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < Vector.length; j++) {
-                Matriz[i][j] = Vector[j];
+                Matriz[0][j] = Vector[j];
+                contador ++;
+                
             }
         }
         return Matriz;
@@ -310,6 +326,58 @@ public class Main {
             }
             System.out.println("");
         }
+    }
+    static double[][] StringMatriz(String cadena){
+        int fila = 1;
+        int columna = 1;
+        double[][] vMatriz;
+        int contFila = 0;
+        int contColum = 0;
+        String cadenaNumero = "";
+        for (int i = 0; i <= cadena.length()-1; i++) {
+            if (fila == 1) {
+                if (cadena.charAt(i) == ',') {
+                    columna++;
+                }
+            }
+            if (cadena.charAt(i) == ';') {
+                fila++;
+            }
+        }
+        vMatriz = new double[fila][columna];
+        for (int i = 0; i <= cadena.length()-1; i++) {
+            if (Character.isDigit(cadena.charAt(i))) {
+                cadenaNumero = cadenaNumero + cadena.charAt(i);
+            }
+            if (cadena.charAt(i) == '-') {
+                cadenaNumero = cadenaNumero + cadena.charAt(i);
+            }
+            if (cadena.charAt(i) == '.') {
+                cadenaNumero = cadenaNumero + cadena.charAt(i);
+            }
+            if (cadena.charAt(i) == ',' || cadena.charAt(i) == ';' || i == cadena.length()-1) {
+                vMatriz[contFila][contColum] = Double.parseDouble(cadenaNumero);
+                if (cadena.charAt(i) == ',') {
+                    contColum++;
+                }
+                if (cadena.charAt(i) == ';') {
+                    contFila++;
+                    contColum = 0;
+                }
+                cadenaNumero = "";
+            }
+        }
+        return vMatriz;
+    }
+    static String imprimirStringMatriz(double[][] Matriz){
+        String cadena = "";
+        for (int i = 0; i <= Matriz.length-1; i++) {
+            for (int j = 0; j <= Matriz[0].length-1; j++) {
+                cadena = cadena + String.valueOf(Matriz[i][j]) + " ";
+            }
+            cadena = cadena + "\n";
+        }
+        return cadena;
     }
     static int leerNumero(String mensaje){
         System.out.println(mensaje);
