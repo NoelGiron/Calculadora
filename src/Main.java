@@ -1,6 +1,5 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
-//import java.util.function.DoubleToLongFunction;
 import java.lang.Math;
 public class Main {
     //escaner general
