@@ -48,6 +48,7 @@ public class Main {
                 b = entradaTeclado.nextInt();
                 res = a+b;
                 System.out.println(a + "+" + b + "=" + res);
+                Aritmetica();
                 break;
             case 2:
                 System.out.println("ingrese el primer numero");
@@ -56,6 +57,7 @@ public class Main {
                 b = entradaTeclado.nextInt();
                 res = a-b;
                 System.out.println(a + "-" + b + "=" + res);
+                Aritmetica();
                 break;
             case 3:
                 System.out.println("ingrese el primer numero");
@@ -64,6 +66,7 @@ public class Main {
                 b = entradaTeclado.nextInt();
                 res = a*b;
                 System.out.println(a + "*" + b + "=" + res);
+                Aritmetica();
                 break;
             case 4:
                 System.out.println("ingrese el primer numero");
@@ -76,6 +79,7 @@ public class Main {
                 } while (b == 0);
                 res = (double) a/b;
                 System.out.println(a+ "/" + b + "=" + res);
+                Aritmetica();
                 break;
             case 5:
                 menuInicio();
@@ -133,7 +137,7 @@ public class Main {
                 break;
             case 3:
                 System.out.println(Math.pow(varianza(cadena), 0.5));  
-                Trigonometria();
+                Estadistica();
                 break;
             case 4:
                 menuInicio();
@@ -160,6 +164,7 @@ public class Main {
                     }    
                 }    
                 impresionMatriz(Gauss(Matriz));
+                Calculo();
                 break;
             case 2:
                 menuInicio();
