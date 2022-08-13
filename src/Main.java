@@ -11,8 +11,8 @@ public class Main {
     //variables para las operaciones Trigonometricas
     static double angulo;
     static int iteraciones;
+    //variables para las operaciones Calculo
     static int n;
-    static double number;
     static String cadena;
     static double[][] Matriz;
     public static void main(String[] args) {
@@ -219,25 +219,25 @@ public class Main {
         return coseno;
     }
     static double media(String cadena){
-        number = 0;
+        double sumatoria = 0;
         System.out.println("ingrese numeros separados por coma (,)");
         cadena = entradaTeclado.next();
         String[] cadenaNumero = cadena.split(","); 
         for (int i = 0; i < cadenaNumero.length; i++) {
-            number += 1/Double.parseDouble(cadenaNumero[i]);
+            sumatoria += 1/Double.parseDouble(cadenaNumero[i]);
         }  
-        return cadenaNumero.length/number;
+        return cadenaNumero.length/sumatoria;
     }
     static double varianza(String cadena){
         double sumatoria = 0;
-        number = 0;
+        double contador = 0;
         System.out.println("ingrese numeros separados por coma (,)");
         cadena = entradaTeclado.next();
         String[] cadenaNumero = cadena.split(","); 
         for (int i = 0; i < cadenaNumero.length; i++) {
-            number += Integer.parseInt(cadenaNumero[i]);
+            contador += Integer.parseInt(cadenaNumero[i]);
         }
-        double media = number/cadenaNumero.length;
+        double media = contador/cadenaNumero.length;
         for (int i = 0; i < cadenaNumero.length; i++) {
             sumatoria += (Math.pow((Double.parseDouble(cadenaNumero[i])-media),2));
         }
