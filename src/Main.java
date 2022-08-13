@@ -162,7 +162,7 @@ public class Main {
                     System.out.println("ingrese una cadena de caracteres separados por una coma (,)");
                     cadena = entradaTeclado.nextLine();
                     String[] cadenaSplit = cadena.split(",");
-                    for (int j = 0; j < Matriz.length; j++) {
+                    for (int j = 0; j < Matriz[i].length; j++) {
                         Matriz[i][j] = Double.parseDouble(cadenaSplit[j]);
                     }    
                 }    
