@@ -5,10 +5,12 @@ import java.lang.Math;
 public class Main {
     //escaner general
     static Scanner entradaTeclado = new Scanner(System.in);
-    //variables para las operaciones aritmeticas
+    //variables para las operaciones Aritmeticas
     static int numero1, numero2;
     static double resultado;
-    static double x;
+    //variables para las operaciones Trigonometricas
+    static double angulo;
+    static int iteraciones;
     static int n;
     static double number;
     static String cadena;
@@ -95,26 +97,26 @@ public class Main {
         switch(opcion){
             case 1:
                 System.out.println("Ingrese el angulo");
-                x = entradaTeclado.nextDouble();
+                angulo = entradaTeclado.nextDouble();
                 System.out.println("Ingrese el numero de iteraciones");
-                n = entradaTeclado.nextInt();
-                System.out.println("Sen("+x+")= " + Seno(x,n));
+                iteraciones = entradaTeclado.nextInt();
+                System.out.println("Sen(" + angulo + ")= " + Seno(angulo,iteraciones));
                 Trigonometria();
                 break;
             case 2:
                 System.out.println("Ingrese el angulo");
-                x = entradaTeclado.nextDouble();
+                angulo = entradaTeclado.nextDouble();
                 System.out.println("Ingrese el numero de iteraciones");
-                n = entradaTeclado.nextInt();
-                System.out.println("Cos("+x+")= " + Coseno(x,n));
+                iteraciones = entradaTeclado.nextInt();
+                System.out.println("Cos(" + angulo + ")= " + Coseno(angulo,iteraciones));
                 Trigonometria();
                 break;
             case 3:
                 System.out.println("Ingrese el angulo");
-                x = entradaTeclado.nextDouble();
+                angulo = entradaTeclado.nextDouble();
                 System.out.println("Ingrese el numero de iteraciones");
-                n = entradaTeclado.nextInt();
-                System.out.println("Tan("+x+")= " + Seno(x,n)/Coseno(x,n));
+                iteraciones = entradaTeclado.nextInt();
+                System.out.println("Tan(" + angulo + ")= " + Seno(angulo,iteraciones)/Coseno(angulo,iteraciones));
                 Trigonometria();
                 break;
             case 4:
