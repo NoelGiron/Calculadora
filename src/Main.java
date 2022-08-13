@@ -3,12 +3,13 @@ import java.util.Scanner;
 import java.util.function.DoubleToLongFunction;
 import java.lang.Math;
 public class Main {
+    //escaner general
     static Scanner entradaTeclado = new Scanner(System.in);
-    static int a;
-    static int b;
+    //variables para las operaciones aritmeticas
+    static int numero1, numero2;
+    static double resultado;
     static double x;
     static int n;
-    static double res;
     static double number;
     static String cadena;
     static double[][] Matriz;
@@ -43,42 +44,42 @@ public class Main {
         switch(opcion){
             case 1:
                 System.out.println("ingrese el primer numero");
-                a = entradaTeclado.nextInt();
+                numero1 = entradaTeclado.nextInt();
                 System.out.println("ingrese el segundo numero");
-                b = entradaTeclado.nextInt();
-                res = a+b;
-                System.out.println(a + "+" + b + "=" + res);
+                numero2 = entradaTeclado.nextInt();
+                resultado = numero1 + numero2;
+                System.out.println(numero1 + "+" + numero2 + "=" + resultado);
                 Aritmetica();
                 break;
             case 2:
                 System.out.println("ingrese el primer numero");
-                a = entradaTeclado.nextInt();
+                numero1 = entradaTeclado.nextInt();
                 System.out.println("ingrese el segundo numero");
-                b = entradaTeclado.nextInt();
-                res = a-b;
-                System.out.println(a + "-" + b + "=" + res);
+                numero2 = entradaTeclado.nextInt();
+                resultado = numero1 - numero2;
+                System.out.println(numero1 + "-" + numero2 + "=" + resultado);
                 Aritmetica();
                 break;
             case 3:
                 System.out.println("ingrese el primer numero");
-                a = entradaTeclado.nextInt();
+                numero1 = entradaTeclado.nextInt();
                 System.out.println("ingrese el segundo numero");
-                b = entradaTeclado.nextInt();
-                res = a*b;
-                System.out.println(a + "*" + b + "=" + res);
+                numero2 = entradaTeclado.nextInt();
+                resultado = numero1 * numero2;
+                System.out.println(numero1 + "*" + numero2 + "=" + resultado);
                 Aritmetica();
                 break;
             case 4:
                 System.out.println("ingrese el primer numero");
-                a = entradaTeclado.nextInt();
+                numero1 = entradaTeclado.nextInt();
                 System.out.println("ingrese el segundo numero");
-                b = entradaTeclado.nextInt();
-                while (b == 0) {
+                numero2 = entradaTeclado.nextInt();
+                while (numero2 == 0) {
                     System.out.println("el segundo numero no puede ser 0 vuelva a ingresar");
-                    b = entradaTeclado.nextInt();
+                    numero2 = entradaTeclado.nextInt();
                 }
-                res = (double) a/b;
-                System.out.println(a+ "/" + b + "=" + res);
+                resultado = (double) numero1 / numero2;
+                System.out.println(numero1 + "/" + numero2 + "=" + resultado);
                 Aritmetica();
                 break;
             case 5:
