@@ -1,5 +1,6 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.function.DoubleToLongFunction;
 import java.lang.Math;
 public class Main {
     static Scanner entradaTeclado = new Scanner(System.in);
@@ -148,27 +149,17 @@ public class Main {
             case 1:
                 System.out.println("Ingrese el tamaño del sistema a resovler");
                 n = entradaTeclado.nextInt();
+                entradaTeclado.nextLine();
                 Matriz = new double[n][n+1];
-                for (int i = 0; i <= n; i++) {
-                    System.out.println("ingrese una cadena de caracteres separados por una coma (,)");
-                    cadena = entradaTeclado.next();    
-                }    
-                llenarMatriz(Spliter(cadena),n);
                 for (int i = 0; i < n; i++) {
-                    for (int j = 0; j <= n; j++) {
-                        System.out.print(Matriz[i][j] + " ");
-                    }   
-                    System.out.println("");
-                }
+                    System.out.println("ingrese una cadena de caracteres separados por una coma (,)");
+                    cadena = entradaTeclado.nextLine();
+                    String[] cadenaSplit = cadena.split(",");
+                    for (int j = 0; j < Matriz.length; j++) {
+                        Matriz[i][j] = Double.parseDouble(cadenaSplit[j]);
+                    }    
+                }    
                 impresionMatriz(Gauss(Matriz));
-//                System.out.println("ingrese la matriz");
-//                cadena = entradaTeclado.next();
-//                System.out.println(imprimirStringMatriz(StringMatriz(cadena)));
-//                System.out.println("----------------------");
-//                System.out.println(imprimirStringMatriz(Gauss(StringMatriz(cadena))));
-                
-//                double[][] A = {{4,5,6},{2,6,3},{6,4,2}};
-//                impresionMatriz(Gauss(A));
                 break;
             case 2:
                 menuInicio();
@@ -225,9 +216,9 @@ public class Main {
         cadena = entradaTeclado.next();
         String[] cadenaNumero = cadena.split(","); 
         for (int i = 0; i < cadenaNumero.length; i++) {
-            number += Integer.parseInt(cadenaNumero[i]);
+            number += 1/Double.parseDouble(cadenaNumero[i]);
         }  
-        return number/cadenaNumero.length;
+        return cadenaNumero.length/number;
     }
     static double varianza(String cadena){
         double sumatoria = 0;
@@ -269,15 +260,12 @@ public class Main {
         int elementos = 1;
         int contador = 0;
         String cadenaNumero = "";
-        //contador de elementos
         for (int i = 0; i <= cadena.length()-1; i++) {
             if (cadena.charAt(i) == ',') {
                 elementos++;
             }
         }
-        //dimensionar el vector
         vector = new double[elementos];
-        //ingreso de numeros
         for (int i = 0; i <= cadena.length()-1; i++) {
             if (Character.isDigit(cadena.charAt(i))) {
                 cadenaNumero = cadenaNumero+cadena.charAt(i);
@@ -288,7 +276,6 @@ public class Main {
             if (cadena.charAt(i) == '-') {
                 cadenaNumero = cadenaNumero+cadena.charAt(i);
             }
-            //ingreso de numeros
             if (cadena.charAt(i) == ',' || i == cadena.length()-1) {
                 vector[contador] = Double.parseDouble(cadenaNumero);
                 if (cadena.charAt(i) == ',') {
@@ -300,9 +287,7 @@ public class Main {
         return vector;
     }
     static String impresion(double[] Vector){
-        //variables
         String valor = "";
-        //recorrido del vector
         for (int i = 0; i <= Vector.length-1; i++) {
             valor = valor + String.valueOf(Vector[i] + " ");
         }
@@ -313,7 +298,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < Vector.length; j++) {
                 Matriz[0][j] = Vector[j];
-                contador ++;
+                contador++;
                 
             }
         }
