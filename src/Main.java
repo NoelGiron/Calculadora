@@ -260,37 +260,6 @@ public class Main {
         }
         return vMatriz;
     }
-    static double[] Spliter(String cadena){
-        double[] vector;
-        int elementos = 1;
-        int contador = 0;
-        String cadenaNumero = "";
-        for (int i = 0; i <= cadena.length()-1; i++) {
-            if (cadena.charAt(i) == ',') {
-                elementos++;
-            }
-        }
-        vector = new double[elementos];
-        for (int i = 0; i <= cadena.length()-1; i++) {
-            if (Character.isDigit(cadena.charAt(i))) {
-                cadenaNumero = cadenaNumero+cadena.charAt(i);
-            }
-            if (cadena.charAt(i) == '.') {
-                cadenaNumero = cadenaNumero+cadena.charAt(i);
-            }
-            if (cadena.charAt(i) == '-') {
-                cadenaNumero = cadenaNumero+cadena.charAt(i);
-            }
-            if (cadena.charAt(i) == ',' || i == cadena.length()-1) {
-                vector[contador] = Double.parseDouble(cadenaNumero);
-                if (cadena.charAt(i) == ',') {
-                    contador++;
-                }
-                cadenaNumero = "";
-            }
-        }
-        return vector;
-    }
     static void impresionMatriz(double[][] Matriz){
         for (int i = 0; i < Matriz.length; i++) {
             for (int j = 0; j <= Matriz.length; j++) {
