@@ -286,24 +286,6 @@ public class Main {
         }
         return vector;
     }
-    static String impresion(double[] Vector){
-        String valor = "";
-        for (int i = 0; i <= Vector.length-1; i++) {
-            valor = valor + String.valueOf(Vector[i] + " ");
-        }
-        return valor;
-    }
-    static double[][] llenarMatriz(double[] Vector, int n){
-        int contador = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < Vector.length; j++) {
-                Matriz[0][j] = Vector[j];
-                contador++;
-                
-            }
-        }
-        return Matriz;
-    }
     static void impresionMatriz(double[][] Matriz){
         for (int i = 0; i < Matriz.length; i++) {
             for (int j = 0; j <= Matriz.length; j++) {
@@ -311,58 +293,6 @@ public class Main {
             }
             System.out.println("");
         }
-    }
-    static double[][] StringMatriz(String cadena){
-        int fila = 1;
-        int columna = 1;
-        double[][] vMatriz;
-        int contFila = 0;
-        int contColum = 0;
-        String cadenaNumero = "";
-        for (int i = 0; i <= cadena.length()-1; i++) {
-            if (fila == 1) {
-                if (cadena.charAt(i) == ',') {
-                    columna++;
-                }
-            }
-            if (cadena.charAt(i) == ';') {
-                fila++;
-            }
-        }
-        vMatriz = new double[fila][columna];
-        for (int i = 0; i <= cadena.length()-1; i++) {
-            if (Character.isDigit(cadena.charAt(i))) {
-                cadenaNumero = cadenaNumero + cadena.charAt(i);
-            }
-            if (cadena.charAt(i) == '-') {
-                cadenaNumero = cadenaNumero + cadena.charAt(i);
-            }
-            if (cadena.charAt(i) == '.') {
-                cadenaNumero = cadenaNumero + cadena.charAt(i);
-            }
-            if (cadena.charAt(i) == ',' || cadena.charAt(i) == ';' || i == cadena.length()-1) {
-                vMatriz[contFila][contColum] = Double.parseDouble(cadenaNumero);
-                if (cadena.charAt(i) == ',') {
-                    contColum++;
-                }
-                if (cadena.charAt(i) == ';') {
-                    contFila++;
-                    contColum = 0;
-                }
-                cadenaNumero = "";
-            }
-        }
-        return vMatriz;
-    }
-    static String imprimirStringMatriz(double[][] Matriz){
-        String cadena = "";
-        for (int i = 0; i <= Matriz.length-1; i++) {
-            for (int j = 0; j <= Matriz[0].length-1; j++) {
-                cadena = cadena + String.valueOf(Matriz[i][j]) + " ";
-            }
-            cadena = cadena + "\n";
-        }
-        return cadena;
     }
     static int leerNumero(String mensaje){
         System.out.println(mensaje);
