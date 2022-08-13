@@ -73,10 +73,10 @@ public class Main {
                 a = entradaTeclado.nextInt();
                 System.out.println("ingrese el segundo numero");
                 b = entradaTeclado.nextInt();
-                do {
+                while (b == 0) {
                     System.out.println("el segundo numero no puede ser 0 vuelva a ingresar");
                     b = entradaTeclado.nextInt();
-                } while (b == 0);
+                }
                 res = (double) a/b;
                 System.out.println(a+ "/" + b + "=" + res);
                 Aritmetica();
